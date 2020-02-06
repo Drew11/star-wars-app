@@ -11,7 +11,6 @@ const Search = ({setSearchQuery, searchQuery}) => {
     };
 
     const sendQuery = (event) => {
-        const query = event.target.value;
         event.preventDefault();
         setSearchQuery(query);
     };
@@ -23,8 +22,8 @@ const Search = ({setSearchQuery, searchQuery}) => {
                             className="form-control mr-sm-2"
                             type="text"
                             placeholder="Search"
-                            value={searchQuery}
-                            onChange={sendQuery}
+                            value={query}
+                            onChange={setNewQuery}
                         />
                             <button className="btn btn-secondary my-2 my-sm-0" type="submit"
                                     onClick={sendQuery}
