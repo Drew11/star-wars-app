@@ -12,6 +12,8 @@ const FilmDetails = ({film, toggleDetails})=>{
     const [filmProps, setFilmsProps] = useState(null);
     const [detailStatus, setDetailStatus] = useState(null);
 
+
+
     useEffect(()=>{
         async function fetch() {
             const obj = {};
@@ -24,7 +26,7 @@ const FilmDetails = ({film, toggleDetails})=>{
             setFilmsProps(obj);
         }
         fetch();
-    },[detailStatus, film]);
+    },[detailStatus]);
 
     const getStatusDetail = (status)=> {
         setDetailStatus(status);

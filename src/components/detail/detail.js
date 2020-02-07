@@ -6,6 +6,7 @@ import PortalView from '../portal/portal-view';
 import './detail.css'
 
 const Detail =({detail, detailName, getStatusDetail})=>{
+
         const swapiService = new SwapiService();
         const id = swapiService.getId(detail);
         const imageSrc = `https://starwars-visualguide.com/assets/img/${detailName}/${id}.jpg`;
@@ -19,7 +20,9 @@ const Detail =({detail, detailName, getStatusDetail})=>{
     const closeWindowPortal = () => {
         setPortalState(false);
     };
+
     getStatusDetail(portalOpen);
+
         return (
             <li
                 className="list-group-item"
