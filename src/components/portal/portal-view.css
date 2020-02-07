@@ -1,0 +1,7 @@
+.detail-info {
+    position: fixed;
+    width: 500px;
+    height: 100%;
+    z-index: 1000;
+    background: #1b4f72;
+}

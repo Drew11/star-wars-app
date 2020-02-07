@@ -1,4 +1,5 @@
 import React, {useState,useEffect} from 'react';
+import Detail from '../detail/detail'
 import Spinner from '../spinner/spinner'
 import SwapiService from '../../services/swapi-service';
 
@@ -6,9 +7,10 @@ import './film-details.css'
 
 const FilmDetails = ({film, toggleDetails})=>{
 
+    const swapiService = new SwapiService();
     const titlesProps = Object.keys(film);
     const [filmProps, setFilmsProps] = useState(null);
-    const swapiService = new SwapiService();
+    const [detailStatus, setDetailStatus] = useState(null);
 
     useEffect(()=>{
         async function fetch() {
@@ -22,34 +24,27 @@ const FilmDetails = ({film, toggleDetails})=>{
             setFilmsProps(obj);
         }
         fetch();
-    },[]);
+    },[detailStatus, film]);
 
-    const details = filmProps?titlesProps.map((detail, index)=> {
-                    const idRegExp = /\/([0-9]*)\/$/;
+    const getStatusDetail = (status)=> {
+        setDetailStatus(status);
+    };
+
+    const filmDetails = filmProps?titlesProps.map((detail, index)=> {
+
                 if (typeof film[detail] === 'object') {
-
                     return  <ul className="list-group"
                                 key={index}
                     >
                         {detail}
-                        {film[detail].map((item, i) =>{
-
-                           const index = filmProps[detail][i].url.match(idRegExp)[1];
-
-                            return <li
+                        {film[detail].map((item, i) =>
+                            <Detail
                                 key={i}
-                                className="list-group-item">
-                                <div className ="hero">
-                                    <img src={`https://starwars-visualguide.com/assets/img/${detail}/${index}.jpg`} alt=""/>
-                                </div>
-
-                                <a href={item}>
-                                            <span>
-                                                {filmProps[detail][i].name}
-                                            </span>
-                                </a>
-                            </li>
-                        })}
+                                detail={filmProps[detail][i]}
+                                detailName={detail}
+                                getStatusDetail={getStatusDetail}
+                            />)
+                        }
                     </ul>
 
                 }
@@ -61,7 +56,8 @@ const FilmDetails = ({film, toggleDetails})=>{
                         {film[detail]}
                     </p>
                 </li>
-            }):<Spinner/>;
+            }):
+        <Spinner/>;
 
 
     return (
@@ -82,7 +78,7 @@ const FilmDetails = ({film, toggleDetails})=>{
                 <div className="card-body">
 
                     <ul className="list-group">
-                        {details}
+                        {filmDetails}
                     </ul>
 
                 </div>
