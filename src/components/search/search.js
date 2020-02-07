@@ -12,7 +12,7 @@ const Search = ({setSearchQuery, searchQuery}) => {
 
     const sendQuery = (event) => {
         event.preventDefault();
-        setSearchQuery(query);
+        setSearchQuery(query.trim());
     };
 
     return (

@@ -15,6 +15,12 @@ class SwapiService {
         return body
     }
 
+    getId(item){
+        const idRegExp = /\/([0-9]*)\/$/;
+        const res =  item.url.match(idRegExp)[1];
+        return res;
+    };
+
     getAllFilms = async () => {
         const films = await this.getSource('/films/');
         return films.results;

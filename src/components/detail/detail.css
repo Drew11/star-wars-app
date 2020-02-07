@@ -1,0 +1,11 @@
+.hero {
+    width: 100%;
+    overflow: hidden;
+}
+.hero img {
+    border-radius: 2px;
+    height: auto;
+    width: auto;
+    max-width: 200px;
+    max-height: 200px;
+}
