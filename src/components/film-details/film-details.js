@@ -1,35 +1,43 @@
-import React, {useState,useEffect} from 'react';
+import React, {useState,useEffect, useLayoutEffect} from 'react';
 import Detail from '../detail/detail'
 import Spinner from '../spinner/spinner'
 import SwapiService from '../../services/swapi-service';
 
 import './film-details.css'
 
-const FilmDetails = ({film, toggleDetails})=>{
+const FilmDetails = ({film, toggleDetails, posterSrc })=>{
+
 
     const swapiService = new SwapiService();
     const titlesProps = Object.keys(film);
     const [filmProps, setFilmsProps] = useState(null);
-    const [detailStatus, setDetailStatus] = useState(null);
+    const [currentDetail, setDetail] = useState(null);
+    const [coverSrc, setCover] = useState(null);
 
+    const fetch = async () => {
+        const obj = {};
+        for (let k in film) {
+            if (typeof film[k] === 'object') {
+                const res = await swapiService.getAllQuery(film[k]);
+                obj[k] = res;
+            }
+        }
+        setFilmsProps(obj);
 
+        if(film.hasOwnProperty('episode_id')) {
+            setCover(`./img/ep-${film.episode_id}.jpg`);
+        } else {
+            setCover(posterSrc);
+        }
+    };
 
     useEffect(()=>{
-        async function fetch() {
-            const obj = {};
-            for (let k in film) {
-                if (typeof film[k] === 'object') {
-                    const res = await swapiService.getAllQuery(film[k]);
-                    obj[k] = res;
-                }
-            }
-            setFilmsProps(obj);
-        }
         fetch();
-    },[detailStatus]);
+    },[]);
 
-    const getStatusDetail = (status)=> {
-        setDetailStatus(status);
+    const getStatusDetail = ({detail, imageSrc}) => {
+        setDetail(detail);
+        setCover(imageSrc)
     };
 
     const filmDetails = filmProps?titlesProps.map((detail, index)=> {
@@ -59,11 +67,14 @@ const FilmDetails = ({film, toggleDetails})=>{
                     </p>
                 </li>
             }):
-        <Spinner/>;
-
+    <Spinner/>;
 
     return (
-        <div className="film-details">
+        currentDetail?<FilmDetails
+            film={currentDetail}
+            toggleDetails={toggleDetails}
+            posterSrc={coverSrc}
+        /> : <div className="film-details">
 
             <div className="card text-white bg-secondary mb-3" >
                 <div className="card-header">
@@ -75,7 +86,7 @@ const FilmDetails = ({film, toggleDetails})=>{
                     </button>
                 </div>
 
-                <img src={`./img/ep-${film.episode_id}.jpg`} className="poster" />
+                <img src={coverSrc} className="poster" />
 
                 <div className="card-body">
 
