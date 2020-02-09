@@ -5,6 +5,9 @@ import './detail.css'
 
 const Detail = ({detail, detailName, getStatusDetail}) => {
 
+    if((detailName === 'people') || (detailName === 'pilots')){
+        detailName='characters'
+    }
         const swapiService = new SwapiService();
         const id = swapiService.getId(detail);
         const imageSrc = `https://starwars-visualguide.com/assets/img/${detailName}/${id}.jpg`;
@@ -24,7 +27,7 @@ const Detail = ({detail, detailName, getStatusDetail}) => {
             >
 
                 <div className="hero">
-                    <img src={detailName ==='films'?`./img/ep-${id}.jpg`: imageSrc} alt=""/>
+                    <img src={detailName ==='films'?`./img/ep-${detail.episode_id}.jpg`: imageSrc} alt=""/>
                 </div>
 
                 <a href={detail}

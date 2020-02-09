@@ -1,4 +1,4 @@
-import React, {useState,useEffect, useLayoutEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import Detail from '../detail/detail'
 import Spinner from '../spinner/spinner'
 import SwapiService from '../../services/swapi-service';
@@ -6,23 +6,24 @@ import SwapiService from '../../services/swapi-service';
 import './film-details.css'
 
 const FilmDetails = ({film, toggleDetails, posterSrc })=>{
-
-
+    
     const swapiService = new SwapiService();
-    const titlesProps = Object.keys(film);
     const [filmProps, setFilmsProps] = useState(null);
+    const [titlesProps, setTitlesProps] = useState(null);
     const [currentDetail, setDetail] = useState(null);
     const [coverSrc, setCover] = useState(null);
 
     const fetch = async () => {
         const obj = {};
         for (let k in film) {
-            if (typeof film[k] === 'object') {
-                const res = await swapiService.getAllQuery(film[k]);
-                obj[k] = res;
+            if (Array.isArray(film[k])) {
+                let res = await swapiService.getAllQuery(film[k]);
+                obj[k]=res;
             }
         }
+
         setFilmsProps(obj);
+        setTitlesProps(Object.keys(film));
 
         if(film.hasOwnProperty('episode_id')) {
             setCover(`./img/ep-${film.episode_id}.jpg`);
@@ -35,14 +36,19 @@ const FilmDetails = ({film, toggleDetails, posterSrc })=>{
         fetch();
     },[]);
 
+
     const getStatusDetail = ({detail, imageSrc}) => {
         setDetail(detail);
-        setCover(imageSrc)
+        setCover(imageSrc);
     };
 
-    const filmDetails = filmProps?titlesProps.map((detail, index)=> {
+    const filmDetails = titlesProps?titlesProps.map((detail, index)=> {
 
-                if (typeof film[detail] === 'object') {
+                if(film[detail]===null) {
+                    film[detail] = 'N/A catch null'
+                }
+
+                if (typeof film[detail] === 'object' && film[detail]!==null) {
                     return  <ul className="list-group"
                                 key={index}
                     >
@@ -53,6 +59,7 @@ const FilmDetails = ({film, toggleDetails, posterSrc })=>{
                                 detail={filmProps[detail][i]}
                                 detailName={detail}
                                 getStatusDetail={getStatusDetail}
+                                posterSrc={posterSrc}
                             />)
                         }
                     </ul>

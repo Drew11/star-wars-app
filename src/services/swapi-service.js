@@ -26,7 +26,6 @@ class SwapiService {
         return films.results;
     };
 
-
     anAsyncFunction = async item => {
         item = item.substring(this._url.length, item.length);
         const res = await this.getSource(item);
