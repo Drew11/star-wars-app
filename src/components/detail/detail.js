@@ -13,10 +13,10 @@ const Detail = ({detail, detailName, getStatusDetail}) => {
         detailName='planets'
     }
 
-        const swapiService = new SwapiService();
-        const id = swapiService.getId(detail);
-        const imageSrc = `https://starwars-visualguide.com/assets/img/${detailName}/${id}.jpg`;
-        const [portalOpen, setPortalState] = useState(false);
+    const swapiService = new SwapiService();
+    const id = swapiService.getId(detail);
+    const imageSrc = `https://starwars-visualguide.com/assets/img/${detailName}/${id}.jpg`;
+    const [portalOpen, setPortalState] = useState(false);
 
     const togglePortal = event => {
         setPortalState(!portalOpen);

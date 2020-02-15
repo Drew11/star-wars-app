@@ -16,6 +16,7 @@ const FilmDetails = ({film, toggleDetails, posterSrc })=>{
     const fetch = async () => {
         const obj = {};
         for (let k in film) {
+
             if (Array.isArray(film[k])) {
                 try {
                     const res = await swapiService.getAllQuery(film[k]);
@@ -24,9 +25,15 @@ const FilmDetails = ({film, toggleDetails, posterSrc })=>{
                     alert(err);
                 }
             }
-            if (k === 'homeworld' ) {
+
+            if ( k === 'homeworld' ) {
+                if(film[k]===null){
+                    continue;
+                }else {
                     const res = await swapiService.getAllQuery(film[k]);
                     obj[k] = res;
+                }
+
             }
         }
 
@@ -46,7 +53,6 @@ const FilmDetails = ({film, toggleDetails, posterSrc })=>{
             .catch((error)=>console.log(error))
     },[]);
 
-
     const getStatusDetail = ({detail, imageSrc}) => {
         setDetail(detail);
         setCover(imageSrc);
@@ -54,21 +60,21 @@ const FilmDetails = ({film, toggleDetails, posterSrc })=>{
 
     const filmDetails = titlesProps?titlesProps.map((detail, index)=> {
 
-                if(detail === 'homeworld'){
+                if (film[detail]===null) {
+                    return;
+                }
+
+                if (detail === 'homeworld') {
                     return <Detail
-                                key={index}
-                                detail={filmProps[detail]}
-                                detailName={detail}
-                                getStatusDetail={getStatusDetail}
-                                posterSrc={posterSrc}
-                          />
+                        key={index}
+                        detail={filmProps[detail]}
+                        detailName={detail}
+                        getStatusDetail={getStatusDetail}
+                        posterSrc={posterSrc}
+                    />
                 }
 
-                if(film[detail]===null) {
-                    film[detail] = 'N/A catch null'
-                }
-
-                if (Array.isArray(film[detail])) {
+                if (Array.isArray(film[detail]) && film[detail].length) {
                     return  <ul className="list-group"
                                 key={index}
                     >
@@ -85,14 +91,13 @@ const FilmDetails = ({film, toggleDetails, posterSrc })=>{
                     </ul>
                 }
 
-                return<li className="list-group-item"
-                          key={index}
-                >
-                    {detail}
-                    <p>
-                        {film[detail]}
-                    </p>
-                </li>
+                return <li className="list-group-item"
+                          key={index}>
+                            {detail}
+                            <p>
+                                {film[detail]}
+                            </p>
+                       </li>
             }):
     <Spinner/>;
 
