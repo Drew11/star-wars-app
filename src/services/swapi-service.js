@@ -33,7 +33,10 @@ class SwapiService {
     };
 
     getAllQuery = async (list) => {
-        return Promise.all(list.map(item => this.anAsyncFunction(item)))
+        if (Array.isArray(list)){
+            return Promise.all(list.map(item => this.anAsyncFunction(item)))
+        }
+        return this.anAsyncFunction(list)
     };
 }
 

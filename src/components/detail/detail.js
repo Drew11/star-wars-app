@@ -5,9 +5,14 @@ import './detail.css'
 
 const Detail = ({detail, detailName, getStatusDetail}) => {
 
-    if((detailName === 'people') || (detailName === 'pilots')){
+    if ( (detailName === 'people') || (detailName === 'pilots') || (detailName==='residents') ) {
         detailName='characters'
     }
+
+    if(detailName === 'homeworld' ){
+        detailName='planets'
+    }
+
         const swapiService = new SwapiService();
         const id = swapiService.getId(detail);
         const imageSrc = `https://starwars-visualguide.com/assets/img/${detailName}/${id}.jpg`;

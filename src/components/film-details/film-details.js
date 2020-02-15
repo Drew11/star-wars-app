@@ -6,7 +6,7 @@ import SwapiService from '../../services/swapi-service';
 import './film-details.css'
 
 const FilmDetails = ({film, toggleDetails, posterSrc })=>{
-    
+
     const swapiService = new SwapiService();
     const [filmProps, setFilmsProps] = useState(null);
     const [titlesProps, setTitlesProps] = useState(null);
@@ -17,8 +17,16 @@ const FilmDetails = ({film, toggleDetails, posterSrc })=>{
         const obj = {};
         for (let k in film) {
             if (Array.isArray(film[k])) {
-                let res = await swapiService.getAllQuery(film[k]);
-                obj[k]=res;
+                try {
+                    const res = await swapiService.getAllQuery(film[k]);
+                    obj[k]=res;
+                } catch(err) {
+                    alert(err);
+                }
+            }
+            if (k === 'homeworld' ) {
+                    const res = await swapiService.getAllQuery(film[k]);
+                    obj[k] = res;
             }
         }
 
@@ -30,10 +38,12 @@ const FilmDetails = ({film, toggleDetails, posterSrc })=>{
         } else {
             setCover(posterSrc);
         }
+
     };
 
     useEffect(()=>{
-        fetch();
+        fetch()
+            .catch((error)=>console.log(error))
     },[]);
 
 
@@ -44,11 +54,21 @@ const FilmDetails = ({film, toggleDetails, posterSrc })=>{
 
     const filmDetails = titlesProps?titlesProps.map((detail, index)=> {
 
+                if(detail === 'homeworld'){
+                    return <Detail
+                                key={index}
+                                detail={filmProps[detail]}
+                                detailName={detail}
+                                getStatusDetail={getStatusDetail}
+                                posterSrc={posterSrc}
+                          />
+                }
+
                 if(film[detail]===null) {
                     film[detail] = 'N/A catch null'
                 }
 
-                if (typeof film[detail] === 'object' && film[detail]!==null) {
+                if (Array.isArray(film[detail])) {
                     return  <ul className="list-group"
                                 key={index}
                     >
@@ -63,8 +83,8 @@ const FilmDetails = ({film, toggleDetails, posterSrc })=>{
                             />)
                         }
                     </ul>
-
                 }
+
                 return<li className="list-group-item"
                           key={index}
                 >

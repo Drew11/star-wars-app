@@ -1,8 +1,17 @@
 .search {
    /*// padding-left: 20px;*/
 }
-.form-control,
-.btn-secondary {
-    margin-right: 20px;
+
+.form-control {
     margin-left: 20px;
+}
+@media screen and (max-width: 574px) {
+
+    .form-control {
+        margin-right: 20px;
+    }
+     .btn-secondary {
+         margin-right: 20px;
+         margin-left: 20px;
+     }
 }

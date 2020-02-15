@@ -51,6 +51,7 @@ class App extends React.Component{
       }
   }
 
+
   render(){
       const {visibleFilms, searchQuery} = this.state;
 
