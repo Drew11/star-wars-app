@@ -41,7 +41,7 @@ const FilmDetails = ({film, toggleDetails, posterSrc })=>{
         setTitlesProps(Object.keys(film));
 
         if(film.hasOwnProperty('episode_id')) {
-            setCover(`./star-wars-app/img/ep-${film.episode_id}.jpg`);
+            setCover(`/star-wars-app/img/ep-${film.episode_id}.jpg`);
         } else {
             setCover(posterSrc);
         }
