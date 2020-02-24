@@ -5,77 +5,82 @@ import FilmList from '../film-list/film-list';
 import Search from '../search/search';
 import './app.css';
 
-class App extends React.Component{
+const getSortCallback = (field) => {
+    switch (field) {
+        case 'title':
+            return (a, b) => a[field].localeCompare(b[field]);
+    }
+};
 
-      swapiService = new SwapiService();
+class App extends React.Component {
 
-      state = {
-          searchQuery: '',
-          filmList: null,
-          visibleFilms: null,
-          isSort: false
-      };
+    swapiService = new SwapiService();
 
-  setSearchQuery = (searchQuery) => {
-      this.setState({searchQuery});
-  };
+    state = {
+        searchQuery: '',
+        sortField: '',
+        films: null,
+    };
 
-  sort = () => {
-      this.setState(prevState=>({isSort: !prevState.isSort}));
-  };
+    setSearchQuery = (searchQuery) => {
+        this.setState({searchQuery})
+    };
 
-  componentDidMount(){
-      this.swapiService.getAllFilms()
-          .then(filmList=>
-              this.setState({
-                  filmList,
-                  visibleFilms: filmList
-              })
-          );
-  }
+    sortFilms = () => {
+        const {sortField} = this.state;
 
-  componentDidUpdate(prevProps, prevState){
-      const {searchQuery, filmList, isSort} = this.state;
+        sortField === 'title' ?
+            this.setState(prevState => ({
+                films: [...prevState.films].reverse()
+            }))
+            :
+            this.setState({sortField: 'title'}, () => {
+                this.setState(prevState => ({
+                    films: [...prevState.films].sort(getSortCallback(this.state.sortField))
+                }))
+            });
 
-      if(prevState.searchQuery !== searchQuery || prevState.isSort !== isSort) {
+    };
 
-          const filteredFilms = filmList.filter(film=>film.title.toLocaleLowerCase().includes(searchQuery.toLocaleLowerCase()));
-          if(isSort) {
-              const visibleFilms = [...filteredFilms].sort((a, b)=>a.title.localeCompare(b.title));
-              this.setState({visibleFilms})
-          }
-          if(!isSort) {
-              const visibleFilms = [...filteredFilms].sort((a, b)=>b.title.localeCompare(a.title));
-              this.setState({visibleFilms})
-          }
-      }
-  }
+    getFilteredFilms = () => {
+        const {films, searchQuery} = this.state;
+        if (films) {
+            return films.filter(film => film.title.toLocaleLowerCase()
+                .includes(searchQuery.toLocaleLowerCase()));
+        }
 
+    };
 
-  render(){
-      const {visibleFilms, searchQuery} = this.state;
+    componentDidMount() {
+        this.swapiService.getAllFilms()
+            .then(films =>
+                this.setState({films}))
+    }
 
-      return (
-          <div className="App">
-              <Header/>
+    render() {
+        const {searchQuery} = this.state;
 
-              <Search
-                  setSearchQuery={this.setSearchQuery}
-                  searchQuery={searchQuery}
-              />
-              <div className="sort">
-                  <button
-                      type="button"
-                      className="btn btn-primary"
-                      onClick={this.sort}
-                  >
-                      Sort by title
-                  </button>
-              </div>
-              <FilmList visibleFilms={visibleFilms}/>
-          </div>
-      );
-  }
+        return (
+            <div className="App">
+                <Header/>
+
+                <Search
+                    setSearchQuery={this.setSearchQuery}
+                    searchQuery={searchQuery}
+                />
+                <div className="sort">
+                    <button
+                        type="button"
+                        className="btn btn-primary"
+                        onClick={this.sortFilms}
+                    >
+                        Sort by title
+                    </button>
+                </div>
+                <FilmList visibleFilms={this.getFilteredFilms()}/>
+            </div>
+        );
+    }
 
 }
 

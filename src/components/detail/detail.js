@@ -32,7 +32,7 @@ const Detail = ({detail, detailName, getStatusDetail}) => {
             >
 
                 <div className="hero">
-                    <img src={detailName ==='films'?`./img/ep-${detail.episode_id}.jpg`: imageSrc} alt=""/>
+                    <img src={detailName ==='films'?`./star-wars-app/img/ep-${detail.episode_id}.jpg`: imageSrc} alt=""/>
                 </div>
 
                 <a href={detail}
