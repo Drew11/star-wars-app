@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7e45d0e0-9c65-4586-8445-ff756b37c678" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/swapi-service.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/swapi-service.js" afterDir="false" />
-    </list>
+    <list default="true" id="7e45d0e0-9c65-4586-8445-ff756b37c678" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -23,8 +20,8 @@
       <file leaf-file-name="swapi-service.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/services/swapi-service.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
+            <state relative-caret-position="58">
+              <caret line="2" column="32" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -33,7 +30,7 @@
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="58">
-              <caret line="2" column="55" lean-forward="true" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="55" />
+              <caret line="2" column="55" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="55" />
             </state>
           </provider>
         </entry>
@@ -223,12 +220,12 @@
       <workItem from="1582097742545" duration="189000" />
       <workItem from="1582097968901" duration="3334000" />
       <workItem from="1582543924395" duration="14420000" />
-      <workItem from="1590489891199" duration="8746000" />
+      <workItem from="1590489891199" duration="9977000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="242044000" />
+    <option name="totallyTimeSpent" value="243275000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -251,7 +248,7 @@
       <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.49947146" weight="0.32992035" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32992035" />
       <window_info anchor="bottom" id="Structure" order="9" side_tool="true" weight="0.24914676" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49841437" weight="0.3215909" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49841437" visible="true" weight="0.3215909" />
       <window_info id="Favorites" order="2" sideWeight="0.5008375" side_tool="true" weight="0.1448203" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -523,14 +520,14 @@
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="58">
-          <caret line="2" column="55" lean-forward="true" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="55" />
+          <caret line="2" column="55" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="55" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/services/swapi-service.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
+        <state relative-caret-position="58">
+          <caret line="2" column="32" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="32" />
         </state>
       </provider>
     </entry>
