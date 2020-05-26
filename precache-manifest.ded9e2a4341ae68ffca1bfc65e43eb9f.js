@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "290832eaaf35c0b61acb320c0db42f6b",
+    "revision": "f761014c55f4a8dd20e7688aa7d1a55f",
     "url": "/star-wars-app/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/star-wars-app/static/css/2.e603e8eb.chunk.css"
   },
   {
-    "revision": "ba1538eba4a0e484eea9",
+    "revision": "e79b4eb773737b81edb1",
     "url": "/star-wars-app/static/css/main.c89bd76e.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/star-wars-app/static/js/2.19f97663.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "ba1538eba4a0e484eea9",
-    "url": "/star-wars-app/static/js/main.e360b8fb.chunk.js"
+    "revision": "e79b4eb773737b81edb1",
+    "url": "/star-wars-app/static/js/main.fdeae139.chunk.js"
   },
   {
     "revision": "a4997b7d78c491e7ca9e",
