@@ -1,6 +1,6 @@
 {
   "name": "star-wars-app",
-  "homepage": "https://drew11.github.io/star-wars-app/",
+  "homepage": "http://drew11.github.io/star-wars-app/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
