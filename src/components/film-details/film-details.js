@@ -22,7 +22,7 @@ const FilmDetails = ({film, toggleDetails, posterSrc })=>{
                     const res = await swapiService.getAllQuery(film[k]);
                     obj[k]=res;
                 } catch(err) {
-                    alert(err);
+                    console.log(err)
                 }
             }
 

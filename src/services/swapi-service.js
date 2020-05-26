@@ -1,6 +1,6 @@
 class SwapiService {
 
-    _url= 'https://swapi.co/api';
+    _url= 'https://swapi.dev/api/';
 
     async getSource (urlRoute){
         const promise = await fetch(`${this._url}${urlRoute}` , {
@@ -22,12 +22,12 @@ class SwapiService {
     };
 
     getAllFilms = async () => {
-        const films = await this.getSource('/films/');
+        const films = await this.getSource('films');
         return films.results;
     };
 
     anAsyncFunction = async item => {
-        item = item.substring(this._url.length, item.length);
+        item = item.substring(this._url.length-1, item.length);
         const res = await this.getSource(item);
         return res;
     };
