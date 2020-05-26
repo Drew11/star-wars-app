@@ -20,8 +20,8 @@
       <file leaf-file-name="swapi-service.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/services/swapi-service.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-401">
-              <caret line="11" column="27" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
+            <state relative-caret-position="232">
+              <caret line="8" column="64" selection-start-line="8" selection-start-column="64" selection-end-line="8" selection-end-column="64" />
             </state>
           </provider>
         </entry>
@@ -220,12 +220,12 @@
       <workItem from="1582097742545" duration="189000" />
       <workItem from="1582097968901" duration="3334000" />
       <workItem from="1582543924395" duration="14420000" />
-      <workItem from="1590489891199" duration="10345000" />
+      <workItem from="1590489891199" duration="10640000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="243643000" />
+    <option name="totallyTimeSpent" value="243938000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -525,8 +525,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/services/swapi-service.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-401">
-          <caret line="11" column="27" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
+        <state relative-caret-position="232">
+          <caret line="8" column="64" selection-start-line="8" selection-start-column="64" selection-end-line="8" selection-end-column="64" />
         </state>
       </provider>
     </entry>
