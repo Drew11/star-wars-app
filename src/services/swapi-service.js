@@ -3,6 +3,9 @@ class SwapiService {
     _url= 'https://swapi.dev/api';
 
     async getSource (urlRoute){
+
+        console.log(`${this._url}/${urlRoute}`);
+
         const promise = await fetch(`${this._url}/${urlRoute}`, {
             mode:'cors'
         });
