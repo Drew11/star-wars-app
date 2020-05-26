@@ -28,7 +28,6 @@ class SwapiService {
 
     anAsyncFunction = async item => {
         item = item.substring(this._url.length, item.length);
-        console.log(item)
         const res = await this.getSource(item);
         return res;
     };
