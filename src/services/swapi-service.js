@@ -6,7 +6,7 @@ class SwapiService {
 
 
 
-        const promise = await fetch(`${this._url}/${urlRoute}`, {
+        const promise = await fetch(`https://swapi.dev/api/films`, {
             mode:'cors'
         });
         console.log(promise);

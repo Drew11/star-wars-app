@@ -20,8 +20,8 @@
       <file leaf-file-name="swapi-service.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/services/swapi-service.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="58">
-              <caret line="2" column="32" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="32" />
+            <state relative-caret-position="-401">
+              <caret line="11" column="27" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -220,12 +220,12 @@
       <workItem from="1582097742545" duration="189000" />
       <workItem from="1582097968901" duration="3334000" />
       <workItem from="1582543924395" duration="14420000" />
-      <workItem from="1590489891199" duration="9977000" />
+      <workItem from="1590489891199" duration="10345000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="243275000" />
+    <option name="totallyTimeSpent" value="243643000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -238,9 +238,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49916247" visible="true" weight="0.1448203" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49916247" visible="true" weight="0.1448203" />
       <window_info anchor="bottom" id="TODO" order="10" sideWeight="0.49947146" weight="0.32954547" />
       <window_info anchor="bottom" id="Docker" order="6" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5015856" side_tool="true" weight="0.3215909" />
@@ -248,7 +247,7 @@
       <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.49947146" weight="0.32992035" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32992035" />
       <window_info anchor="bottom" id="Structure" order="9" side_tool="true" weight="0.24914676" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49841437" visible="true" weight="0.3215909" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.49841437" visible="true" weight="0.3215909" />
       <window_info id="Favorites" order="2" sideWeight="0.5008375" side_tool="true" weight="0.1448203" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -526,8 +525,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/services/swapi-service.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="2" column="32" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="32" />
+        <state relative-caret-position="-401">
+          <caret line="11" column="27" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
         </state>
       </provider>
     </entry>
